@@ -1,6 +1,6 @@
 import ListItem from "@/components/ListItem";
 import { prisma } from "@/db";
-import { redirect } from "next/navigation";
+import { revalidatePath } from "next/cache";
 
 function getTodos() {
   return prisma.todo.findMany();
@@ -16,7 +16,7 @@ async function deleteTodo(id: string) {
   "use server";
 
   await prisma.todo.delete({ where: { id } });
-  redirect("/");
+  revalidatePath("/");
 }
 
 async function Home() {
