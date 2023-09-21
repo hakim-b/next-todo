@@ -6,7 +6,7 @@ export default function Loading() {
   return (
     <div className="justify-center">
         <Progress
-          size="sm"
+          size="md"
           isIndeterminate
           aria-label="Loading..."
           className="max-w-md"
