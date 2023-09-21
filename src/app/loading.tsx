@@ -1,27 +1,20 @@
 "use client";
 
-import { Card, Skeleton } from "@nextui-org/react";
+import { Skeleton } from "@nextui-org/react";
 
 function Loading() {
   return (
     <>
-      <div className="flex items-center justify-center mt-3">
-          <Card className="w-[200px] space-y-5 p-4" radius="lg">
-            <Skeleton className="rounded-lg">
-              <div className="h-24 rounded-lg bg-default-300"></div>
-            </Skeleton>
-            <div className="space-y-3">
-              <Skeleton className="w-3/5 rounded-lg">
-                <div className="h-3 w-3/5 rounded-lg bg-default-200"></div>
-              </Skeleton>
-              <Skeleton className="w-4/5 rounded-lg">
-                <div className="h-3 w-4/5 rounded-lg bg-default-200"></div>
-              </Skeleton>
-              <Skeleton className="w-2/5 rounded-lg">
-                <div className="h-3 w-2/5 rounded-lg bg-default-300"></div>
-              </Skeleton>
-            </div>
-          </Card>
+      <div className="mt-10 flex h-screen justify-center">
+        <div className="flex w-full max-w-[300px] items-center gap-3">
+          <div>
+            <Skeleton className="flex h-12 w-12 rounded-full" />
+          </div>
+          <div className="flex w-full flex-col gap-2">
+            <Skeleton className="h-3 w-3/5 rounded-lg" />
+            <Skeleton className="h-3 w-4/5 rounded-lg" />
+          </div>
+        </div>
       </div>
     </>
   );
