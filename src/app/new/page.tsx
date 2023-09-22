@@ -8,10 +8,10 @@ function Page() {
   return (
     <>
       <form
-        className="container mx-auto flex flex-col gap-2 sm:max-w-md mt-4"
+        className="container mx-auto mt-4 flex flex-col gap-2 sm:max-w-md"
         action={createTodo}
       >
-        <Input type="text" label="Task name" name="title" />
+        <Input type="text" label="Task name" name="title" isRequired />
         <div className="flex justify-end gap-1">
           <Button as={Link} color="danger" href="..">
             Cancel
