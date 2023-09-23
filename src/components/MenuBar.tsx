@@ -30,7 +30,7 @@ export default function MenuBar() {
 
   return (
     <>
-      <Navbar className="shadow-md dark:shadow-2xl">
+      <Navbar className="shadow-md dark:border-2 dark:border-solid dark:border-gray-800">
         <NavbarBrand>
           <p className="font-bold text-inherit">TODOS</p>
         </NavbarBrand>
