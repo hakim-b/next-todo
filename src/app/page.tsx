@@ -2,7 +2,7 @@ import ListItem from "@/components/ListItem";
 import { prisma } from "@/db";
 import { revalidatePath } from "next/cache";
 
-function getTodos() {
+async function getTodos() {
   return prisma.todo.findMany();
 }
 

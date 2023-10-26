@@ -6,7 +6,7 @@ function Loading() {
   return (
     <>
       <div className="mt-10 flex h-screen justify-center">
-        <div className="flex w-full max-w-[300px] items-center gap-3">
+        <div className="flex w-full max-w-[300px] gap-3">
           <div>
             <Skeleton className="flex h-12 w-12 rounded-full" />
           </div>
