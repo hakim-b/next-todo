@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.0.18",
-    "@nextui-org/react": "^2.1.13",
+    "@nextui-org/react": "^2.2.6",
     "@prisma/client": "^5.5.2",
     "@types/node": "20.3.0",
     "@types/react": "18.2.11",
