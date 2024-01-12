@@ -1,11 +1,9 @@
 import { ReactNode } from "react";
 import "./globals.css";
-import { Roboto_Flex } from "next/font/google";
 import Providers from "./providers";
 import MenuBar from "@/components/MenuBar";
 import { Metadata } from "next";
-
-const robotoFlex = Roboto_Flex({ subsets: ["latin"], weight: "400" });
+import { GeistSans } from "geist/font/sans";
 
 export const metadata: Metadata = {
   title: "Next.js TODOS",
@@ -18,9 +16,9 @@ type RootLayoutProps = {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${GeistSans.variable}`}>
       <Providers>
-        <body className={robotoFlex.className}>
+        <body>
           <MenuBar />
           {children}
         </body>

@@ -1,5 +1,5 @@
 import ListItem from "@/components/ListItem";
-import { prisma } from "@/db";
+import prisma from "@/db";
 import { revalidatePath } from "next/cache";
 
 async function getTodos() {
@@ -25,7 +25,7 @@ async function Home() {
   return (
     <>
       <div className="mt-10 flex h-screen justify-center">
-        <ul className="pl-4 flex flex-col gap-3">
+        <ul className="flex flex-col gap-3 pl-4">
           {todos.map((todo) => (
             <ListItem
               key={todo.id}

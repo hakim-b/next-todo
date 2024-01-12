@@ -1,6 +1,6 @@
 "use server";
 
-import { prisma } from "@/db";
+import prisma  from "@/db";
 import { redirect } from "next/navigation";
 
 export async function createTodo(data: FormData) {
