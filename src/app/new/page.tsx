@@ -1,8 +1,19 @@
-"use client";
-
 import Link from "next/link";
-import { createTodo } from "../actions";
-import { Button, Input } from "@nextui-org/react";
+import { Button } from "@nextui-org/button";
+import { Input } from "@nextui-org/input";
+import prisma from "@/lib/db";
+import { redirect } from "next/navigation";
+
+async function createTodo(data: FormData) {
+  const title = data.get("title")?.valueOf();
+
+  if (typeof title !== "string" || title.length === 0) {
+    throw new Error("Invalid title");
+  }
+
+  await prisma.todo.create({ data: { title, complete: false } });
+  redirect("/");
+}
 
 function Page() {
   return (

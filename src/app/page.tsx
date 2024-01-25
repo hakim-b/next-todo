@@ -1,18 +1,18 @@
-import ListItem from "@/components/ListItem";
-import prisma from "@/db";
+import ListItem from "@/components/list-item";
+import prisma from "@/lib/db";
 import { revalidatePath } from "next/cache";
 
 async function getTodos() {
   return prisma.todo.findMany();
 }
 
-async function toggleTodo(id: string, complete: boolean) {
+async function toggleTask(id: string, complete: boolean) {
   "use server";
 
   await prisma.todo.update({ where: { id }, data: { complete } });
 }
 
-async function deleteTodo(id: string) {
+async function deleteTask(id: string) {
   "use server";
 
   await prisma.todo.delete({ where: { id } });
@@ -26,12 +26,12 @@ async function Home() {
     <>
       <div className="mt-10 flex h-screen justify-center">
         <ul className="flex flex-col gap-3 pl-4">
-          {todos.map((todo) => (
+          {todos.map((task) => (
             <ListItem
-              key={todo.id}
-              {...todo}
-              toggleTodo={toggleTodo}
-              deleteTodo={deleteTodo}
+              key={task.id}
+              {...task}
+              toggleTodo={toggleTask}
+              deleteTodo={deleteTask}
             />
           ))}
         </ul>

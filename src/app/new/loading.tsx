@@ -1,6 +1,4 @@
-"use client";
-
-import { Progress } from "@nextui-org/react";
+import { Progress } from "@nextui-org/progress";
 
 export default function Loading() {
   return (
