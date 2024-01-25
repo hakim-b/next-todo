@@ -1,17 +1,19 @@
-import Link from "next/link";
+import { Link } from "@nextui-org/link";
 import { Button } from "@nextui-org/button";
 import { Input } from "@nextui-org/input";
 import prisma from "@/lib/db";
 import { redirect } from "next/navigation";
 
 async function createTodo(data: FormData) {
+  "use server";
+
   const title = data.get("title")?.valueOf();
 
   if (typeof title !== "string" || title.length === 0) {
     throw new Error("Invalid title");
   }
 
-  await prisma.todo.create({ data: { title, complete: false } });
+  await prisma.task.create({ data: { title, complete: false } });
   redirect("/");
 }
 

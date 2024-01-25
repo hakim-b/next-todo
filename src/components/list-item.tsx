@@ -1,29 +1,28 @@
 "use client";
 
 import { Button, Checkbox } from "@nextui-org/react";
+import { Task } from "@prisma/client";
 
 type ListItemProps = {
-  id: string;
-  title: string;
-  complete: boolean;
+  todo: Task;
   toggleTodo: (id: string, complete: boolean) => void;
   deleteTodo: (id: string) => void;
 };
 
-function ListItem({ id, title, complete, toggleTodo, deleteTodo }: ListItemProps) {
+function ListItem({ todo, toggleTodo, deleteTodo }: ListItemProps) {
   return (
     <>
       <li className="flex justify-between gap-3">
         <Checkbox
           color="success"
           lineThrough
-          defaultSelected={complete}
-          onChange={(e) => toggleTodo(id, e.target.checked)}
-          id={id}
+          defaultSelected={todo.complete}
+          onChange={(e) => toggleTodo(todo.id, e.target.checked)}
+          id={todo.id}
         >
-          {title}
+          {todo.title}
         </Checkbox>
-        <Button onClick={() => deleteTodo(id)} color="danger">
+        <Button onClick={() => deleteTodo(todo.id)} color="danger">
           Delete
         </Button>
       </li>

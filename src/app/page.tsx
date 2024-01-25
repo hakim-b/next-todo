@@ -2,34 +2,34 @@ import ListItem from "@/components/list-item";
 import prisma from "@/lib/db";
 import { revalidatePath } from "next/cache";
 
-async function getTodos() {
-  return prisma.todo.findMany();
+async function getTasks() {
+  return prisma.task.findMany();
 }
 
 async function toggleTask(id: string, complete: boolean) {
   "use server";
 
-  await prisma.todo.update({ where: { id }, data: { complete } });
+  await prisma.task.update({ where: { id }, data: { complete } });
 }
 
 async function deleteTask(id: string) {
   "use server";
 
-  await prisma.todo.delete({ where: { id } });
+  await prisma.task.delete({ where: { id } });
   revalidatePath("/");
 }
 
 async function Home() {
-  const todos = await getTodos();
+  const tasks = await getTasks();
 
   return (
     <>
       <div className="mt-10 flex h-screen justify-center">
         <ul className="flex flex-col gap-3 pl-4">
-          {todos.map((task) => (
+          {tasks.map((task) => (
             <ListItem
               key={task.id}
-              {...task}
+              todo={task}
               toggleTodo={toggleTask}
               deleteTodo={deleteTask}
             />
