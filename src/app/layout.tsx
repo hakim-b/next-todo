@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import "./globals.css";
-import Providers from "./providers";
+import Providers from "@/context/providers";
 import { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import {
