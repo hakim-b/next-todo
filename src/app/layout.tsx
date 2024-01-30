@@ -27,7 +27,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang="en" className={`${GeistSans.variable}`}>
       <Providers>
         <body>
-          <Navbar className="shadow-md dark:border-2 dark:border-solid dark:border-gray-800">
+          <Navbar className="shadow-md dark:shadow-white">
             <NavbarBrand>
               <Link href="/" color="secondary">
                 NEXT TODOS
