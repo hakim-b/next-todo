@@ -2,10 +2,6 @@ import ListItem from "@/components/list-item";
 import prisma from "@/lib/db";
 import { revalidatePath } from "next/cache";
 
-async function getTasks() {
-  return prisma.task.findMany();
-}
-
 async function toggleTask(id: string, complete: boolean) {
   "use server";
 
@@ -20,7 +16,7 @@ async function deleteTask(id: string) {
 }
 
 async function Home() {
-  const tasks = await getTasks();
+  const tasks = await prisma.task.findMany();
 
   return (
     <>
