@@ -5,8 +5,8 @@ import { Task } from "@prisma/client";
 
 type ListItemProps = {
   todo: Task;
-  toggleTodo: (id: string, complete: boolean) => void;
-  deleteTodo: (id: string) => void;
+  toggleTodo: (id: number, complete: boolean) => void;
+  deleteTodo: (id: number) => void;
 };
 
 function ListItem({ todo, toggleTodo, deleteTodo }: ListItemProps) {
@@ -18,7 +18,7 @@ function ListItem({ todo, toggleTodo, deleteTodo }: ListItemProps) {
           lineThrough
           defaultSelected={todo.complete}
           onChange={(e) => toggleTodo(todo.id, e.target.checked)}
-          id={todo.id}
+          id={todo.id.toString()}
         >
           {todo.title}
         </Checkbox>

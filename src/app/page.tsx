@@ -2,13 +2,13 @@ import ListItem from "@/components/list-item";
 import prisma from "@/lib/db";
 import { revalidatePath } from "next/cache";
 
-async function toggleTask(id: string, complete: boolean) {
+async function toggleTask(id: number, complete: boolean) {
   "use server";
 
   await prisma.task.update({ where: { id }, data: { complete } });
 }
 
-async function deleteTask(id: string) {
+async function deleteTask(id: number) {
   "use server";
 
   await prisma.task.delete({ where: { id } });
