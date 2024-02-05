@@ -46,21 +46,21 @@ function ThemeSwitcher() {
         >
           <DropdownItem
             key="system"
-            startContent={<ColorIcon />}
+            startContent={<ColorIcon className="h-8 w-8" />}
             onClick={() => setTheme("system")}
           >
             System
           </DropdownItem>
           <DropdownItem
             key="light"
-            startContent={<SunIcon />}
+            startContent={<SunIcon className="h-8 w-8" />}
             onClick={() => setTheme("light")}
           >
             Light
           </DropdownItem>
           <DropdownItem
             key="dark"
-            startContent={<MoonIcon />}
+            startContent={<MoonIcon className="h-8 w-8" />}
             onClick={() => setTheme("dark")}
           >
             Dark
