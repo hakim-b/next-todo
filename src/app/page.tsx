@@ -1,5 +1,5 @@
-import ListItem from "@/components/list-item";
-import prisma from "@/lib/db";
+import ListItem from "~/components/list-item";
+import prisma from "~/lib/db";
 import { revalidatePath } from "next/cache";
 
 async function toggleTask(id: number, complete: boolean) {

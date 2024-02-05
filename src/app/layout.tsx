@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import "./globals.css";
-import Providers from "@/context/providers";
+import Providers from "~/context/providers";
 import { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import {
@@ -11,7 +11,7 @@ import {
 } from "@nextui-org/navbar";
 import { Button } from "@nextui-org/button";
 import { Link } from "@nextui-org/link";
-import ThemeSwitcher from "@/components/theme-switcher";
+import ThemeSwitcher from "~/components/theme-switcher";
 
 export const metadata: Metadata = {
   title: "Next.js TODOS",

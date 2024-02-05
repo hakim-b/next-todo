@@ -7,13 +7,10 @@ import {
   DropdownItem,
   Button,
 } from "@nextui-org/react";
-import {
-  ComputerDesktopIcon,
-  SunIcon,
-  MoonIcon,
-} from "@heroicons/react/24/solid";
 import { useEffect, useMemo, useState } from "react";
 import { useTheme } from "next-themes";
+import { SunIcon, MoonIcon } from "@nextui-org/shared-icons";
+import ColorIcon from "~/assets/codicon--color-mode.svg";
 
 function ThemeSwitcher() {
   const [mounted, setMounted] = useState(false);
@@ -49,21 +46,21 @@ function ThemeSwitcher() {
         >
           <DropdownItem
             key="system"
-            startContent={<ComputerDesktopIcon className="h-8 w-8" />}
+            startContent={<ColorIcon />}
             onClick={() => setTheme("system")}
           >
             System
           </DropdownItem>
           <DropdownItem
             key="light"
-            startContent={<SunIcon className="h-8 w-8" />}
+            startContent={<SunIcon />}
             onClick={() => setTheme("light")}
           >
             Light
           </DropdownItem>
           <DropdownItem
             key="dark"
-            startContent={<MoonIcon className="h-8 w-8" />}
+            startContent={<MoonIcon />}
             onClick={() => setTheme("dark")}
           >
             Dark

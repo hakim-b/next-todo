@@ -1,7 +1,7 @@
 import { Link } from "@nextui-org/link";
 import { Button } from "@nextui-org/button";
 import { Input } from "@nextui-org/input";
-import prisma from "@/lib/db";
+import prisma from "~/lib/db";
 import { redirect } from "next/navigation";
 
 async function createTodo(data: FormData) {
