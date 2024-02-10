@@ -2,7 +2,6 @@ import { ReactNode } from "react";
 import "./globals.css";
 import Providers from "~/context/providers";
 import { Metadata } from "next";
-import { GeistSans } from "geist/font/sans";
 import {
   Navbar,
   NavbarBrand,
@@ -12,6 +11,14 @@ import {
 import { Button } from "@nextui-org/button";
 import { Link } from "@nextui-org/link";
 import ThemeSwitcher from "~/components/theme-switcher";
+import { Roboto } from "next/font/google";
+
+const roboto = Roboto({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-roboto",
+  weight: "400",
+});
 
 export const metadata: Metadata = {
   title: "Next.js TODOS",
@@ -24,9 +31,9 @@ type RootLayoutProps = {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en" className={`${GeistSans.variable}`}>
-      <Providers>
-        <body>
+    <html lang="en" className={`${roboto.variable}`}>
+      <body>
+        <Providers>
           <Navbar className="shadow-md dark:shadow-white">
             <NavbarBrand>
               <Link href="/" color="secondary">
@@ -45,8 +52,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
             </NavbarContent>
           </Navbar>
           {children}
-        </body>
-      </Providers>
+        </Providers>
+      </body>
     </html>
   );
 }

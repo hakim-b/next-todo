@@ -21,6 +21,9 @@ async function Home() {
   return (
     <>
       <div className="mt-10 flex h-screen justify-center">
+        {tasks.length === 0 && (
+          <h1 className="text-4xl font-bold">Your TODO List is empty</h1>
+        )}
         <ul className="flex flex-col gap-3 pl-4">
           {tasks.map((task) => (
             <ListItem

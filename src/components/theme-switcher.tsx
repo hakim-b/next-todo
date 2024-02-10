@@ -9,8 +9,11 @@ import {
 } from "@nextui-org/react";
 import { useEffect, useMemo, useState } from "react";
 import { useTheme } from "next-themes";
-import { SunIcon, MoonIcon } from "@nextui-org/shared-icons";
-import ColorIcon from "~/assets/codicon--color-mode.svg";
+import {
+  SunIcon,
+  MoonIcon,
+  ComputerDesktopIcon,
+} from "@heroicons/react/24/solid";
 
 function ThemeSwitcher() {
   const [mounted, setMounted] = useState(false);
@@ -45,25 +48,25 @@ function ThemeSwitcher() {
           onSelectionChange={setSelectedKeys as any}
         >
           <DropdownItem
-            key="system"
-            startContent={<ColorIcon className="h-8 w-8" />}
-            onClick={() => setTheme("system")}
-          >
-            System
-          </DropdownItem>
-          <DropdownItem
             key="light"
-            startContent={<SunIcon className="h-8 w-8" />}
             onClick={() => setTheme("light")}
+            startContent={<SunIcon className="h-7 w-7" />}
           >
             Light
           </DropdownItem>
           <DropdownItem
             key="dark"
-            startContent={<MoonIcon className="h-8 w-8" />}
             onClick={() => setTheme("dark")}
+            startContent={<MoonIcon className="h-7 w-7" />}
           >
             Dark
+          </DropdownItem>
+          <DropdownItem
+            key="system"
+            onClick={() => setTheme("system")}
+            startContent={<ComputerDesktopIcon className="h-7 w-7" />}
+          >
+            System
           </DropdownItem>
         </DropdownMenu>
       </Dropdown>
