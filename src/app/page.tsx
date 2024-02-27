@@ -1,6 +1,8 @@
 import ListItem from "~/components/list-item";
 import prisma from "~/lib/db";
 import { revalidatePath } from "next/cache";
+import { For } from "~/utils/for";
+import { Task } from "@prisma/client";
 
 async function toggleTask(id: number, complete: boolean) {
   "use server";
@@ -25,14 +27,16 @@ async function Home() {
           <h1 className="text-4xl font-bold">Your TODO List is empty</h1>
         )}
         <ul className="flex flex-col gap-3 pl-4">
-          {tasks.map((task) => (
-            <ListItem
-              key={task.id}
-              todo={task}
-              toggleTodo={toggleTask}
-              deleteTodo={deleteTask}
-            />
-          ))}
+          <For
+            each={tasks}
+            render={(task: Task) => (
+              <ListItem
+                todo={task}
+                toggleTodo={toggleTask}
+                deleteTodo={deleteTask}
+              />
+            )}
+          />
         </ul>
       </div>
     </>
