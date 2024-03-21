@@ -4,21 +4,19 @@ import { revalidatePath } from "next/cache";
 import { For } from "~/utils/for";
 import { Task } from "@prisma/client";
 
-async function toggleTask(id: number, complete: boolean) {
-  "use server";
-
-  await prisma.task.update({ where: { id }, data: { complete } });
-}
-
-async function deleteTask(id: number) {
-  "use server";
-
-  await prisma.task.delete({ where: { id } });
-  revalidatePath("/");
-}
-
 async function Home() {
   const tasks = await prisma.task.findMany();
+
+  const toggleTask = async (id: number, complete: boolean) => {
+    "use server";
+    await prisma.task.update({ where: { id }, data: { complete } });
+  };
+
+  const deleteTask = async (id: number) => {
+    "use server";
+    await prisma.task.delete({ where: { id } });
+    revalidatePath("/");
+  };
 
   return (
     <>
